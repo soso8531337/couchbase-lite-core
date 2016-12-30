@@ -44,8 +44,11 @@ namespace c4Internal {
     FilePath Database::findOrCreateBundle(const string &path, C4DatabaseConfig &config) {
         FilePath bundle {path, ""};
         bool createdDir = ((config.flags & kC4DB_Create) && bundle.mkdir());
-        if (!createdDir)
+        if (!createdDir) {
             bundle.mustExistAsDir();
+            if (config.flags & kC4DB_CreateOnly)
+                error::_throw(error::POSIX, EEXIST);
+        }
 
         DataFile::Factory *factory = DataFile::factoryNamed(config.storageEngine);
         if (!factory)
@@ -91,6 +94,8 @@ namespace c4Internal {
             options.keyStores.sequences = options.keyStores.softDeletes = true;
         }
         options.create = (config.flags & kC4DB_Create) != 0;
+        options.createOnly = (config.flags & kC4DB_CreateOnly) != 0 &&
+                             (config.flags & kC4DB_Bundled) == 0;
         options.writeable = (config.flags & kC4DB_ReadOnly) == 0;
 
         options.encryptionAlgorithm = (EncryptionAlgorithm)config.encryptionKey.algorithm;

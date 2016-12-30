@@ -132,6 +132,8 @@ namespace litecore {
         int sqlFlags = options().writeable ? SQLite::OPEN_READWRITE : SQLite::OPEN_READONLY;
         if (options().create)
             sqlFlags |= SQLite::OPEN_CREATE;
+        if (options().createOnly && filePath().exists())
+            error::_throw(error::POSIX, EEXIST);
         _sqlDb = make_unique<SQLite::Database>(filePath().path().c_str(), sqlFlags);
 
         if (!decrypt())

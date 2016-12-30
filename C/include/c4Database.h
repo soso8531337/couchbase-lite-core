@@ -28,11 +28,12 @@ extern "C" {
 
     /** Boolean options for C4DatabaseConfig. */
     typedef C4_OPTIONS(uint32_t, C4DatabaseFlags) {
-        kC4DB_Create        = 1,    ///< Create the file if it doesn't exist
+        kC4DB_Create        = 1,    ///< Create the database if it doesn't exist
         kC4DB_ReadOnly      = 2,    ///< Open file read-only
         kC4DB_AutoCompact   = 4,    ///< Enable auto-compaction
         kC4DB_Bundled       = 8,    ///< Store db (and views) inside a directory
         kC4DB_SharedKeys    = 0x10, ///< Enable shared-keys optimization at creation time
+        kC4DB_CreateOnly    = 0x20, ///< Fail if database already exists
     };
 
     /** Document versioning system (also determines database storage schema) */

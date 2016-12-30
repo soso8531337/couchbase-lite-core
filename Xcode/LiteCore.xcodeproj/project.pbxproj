@@ -186,6 +186,19 @@
 		27B341291D9C7A90009FFA0B /* SQLite_Internal.hh in Headers */ = {isa = PBXBuildFile; fileRef = 27B341261D9C7A90009FFA0B /* SQLite_Internal.hh */; };
 		27B738021DEF65C900A8A6B1 /* LCQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = 27B738001DEF65C900A8A6B1 /* LCQuery.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		27B738031DEF65C900A8A6B1 /* LCQuery.mm in Sources */ = {isa = PBXBuildFile; fileRef = 27B738011DEF65C900A8A6B1 /* LCQuery.mm */; };
+		27B864641E0DF7E200A2880A /* Listener.cc in Sources */ = {isa = PBXBuildFile; fileRef = 27B864631E0DF7E200A2880A /* Listener.cc */; };
+		27B864691E0DF7FC00A2880A /* libLiteCore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 720EA3F51BA7EAD9002B8416 /* libLiteCore.dylib */; };
+		27B8646C1E0DF8D800A2880A /* libevhtp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 27B864571E0DF72600A2880A /* libevhtp.a */; };
+		27B8646F1E0E2A3100A2880A /* libevent_core-2.0.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 27B8646E1E0E2A3100A2880A /* libevent_core-2.0.5.dylib */; };
+		27B864781E0E2BF000A2880A /* LiteServ.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27B864771E0E2BF000A2880A /* LiteServ.cpp */; };
+		27B8647E1E0E2C1500A2880A /* libLiteCoreListener.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 27B8645D1E0DF7E200A2880A /* libLiteCoreListener.dylib */; };
+		27B864811E0EE5EC00A2880A /* Handler.cc in Sources */ = {isa = PBXBuildFile; fileRef = 27B8647F1E0EE5EC00A2880A /* Handler.cc */; };
+		27B864821E0EE5EC00A2880A /* Handler.hh in Headers */ = {isa = PBXBuildFile; fileRef = 27B864801E0EE5EC00A2880A /* Handler.hh */; };
+		27B864851E10EA5600A2880A /* Request.cc in Sources */ = {isa = PBXBuildFile; fileRef = 27B864831E10EA5600A2880A /* Request.cc */; };
+		27B864861E10EA5600A2880A /* Request.hh in Headers */ = {isa = PBXBuildFile; fileRef = 27B864841E10EA5600A2880A /* Request.hh */; };
+		27B8648A1E15A3E500A2880A /* libFleece.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 27FA09BC1D70ADE8005888AA /* libFleece.a */; };
+		27B8648F1E15D8DA00A2880A /* EvHtpListener.cc in Sources */ = {isa = PBXBuildFile; fileRef = 27B8648D1E15D8DA00A2880A /* EvHtpListener.cc */; };
+		27B864901E15D8DA00A2880A /* EvHtpListener.hh in Headers */ = {isa = PBXBuildFile; fileRef = 27B8648E1E15D8DA00A2880A /* EvHtpListener.hh */; };
 		27BA04C01DC12DCA000BA8E5 /* LCDocument.h in Headers */ = {isa = PBXBuildFile; fileRef = 27BA04BE1DC12DCA000BA8E5 /* LCDocument.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		27BA04C11DC12DCA000BA8E5 /* LCDocument.mm in Sources */ = {isa = PBXBuildFile; fileRef = 27BA04BF1DC12DCA000BA8E5 /* LCDocument.mm */; };
 		27BA04CD1DC26FB9000BA8E5 /* LC_Internal.mm in Sources */ = {isa = PBXBuildFile; fileRef = 27BA04CC1DC26FB9000BA8E5 /* LC_Internal.mm */; };
@@ -526,6 +539,27 @@
 			remoteGlobalIDString = 720EA3DB1BA7EAD9002B8416;
 			remoteInfo = "LiteCore dylib";
 		};
+		27B8646A1E0DF80200A2880A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2750723318E3E52800A80C5A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 720EA3DB1BA7EAD9002B8416;
+			remoteInfo = "LiteCore dylib";
+		};
+		27B8647C1E0E2C0F00A2880A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2750723318E3E52800A80C5A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 27B8645C1E0DF7E200A2880A;
+			remoteInfo = LiteCoreListener;
+		};
+		27B8648B1E15A3EC00A2880A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 277CB6251D0DED5E00702E56 /* Fleece.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 270FA25B1BF53CAD005DCB13;
+			remoteInfo = Fleece;
+		};
 		27E3DCFE1DB0583E00F2872D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 2750723318E3E52800A80C5A /* Project object */;
@@ -610,6 +644,15 @@
 				27A924BD1D9B358300086206 /* libLiteCore.dylib in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
+		};
+		27B864731E0E2BF000A2880A /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
 		};
 		27EF810E1917EEC600A327B9 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -812,6 +855,26 @@
 		27B341261D9C7A90009FFA0B /* SQLite_Internal.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SQLite_Internal.hh; sourceTree = "<group>"; };
 		27B738001DEF65C900A8A6B1 /* LCQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCQuery.h; sourceTree = "<group>"; };
 		27B738011DEF65C900A8A6B1 /* LCQuery.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LCQuery.mm; sourceTree = "<group>"; };
+		27B864511E0DF70500A2880A /* evhtp_heap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = evhtp_heap.h; sourceTree = "<group>"; };
+		27B864521E0DF70500A2880A /* evhtp_json.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = evhtp_json.h; sourceTree = "<group>"; };
+		27B864531E0DF70500A2880A /* evhtp_numtoa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = evhtp_numtoa.h; sourceTree = "<group>"; };
+		27B864541E0DF70500A2880A /* evhtp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = evhtp.h; sourceTree = "<group>"; };
+		27B864551E0DF70500A2880A /* evthr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = evthr.h; sourceTree = "<group>"; };
+		27B864561E0DF70500A2880A /* htparse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = htparse.h; sourceTree = "<group>"; };
+		27B864571E0DF72600A2880A /* libevhtp.a */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.objfile"; name = libevhtp.a; path = build/libevhtp.a; sourceTree = "<group>"; };
+		27B8645D1E0DF7E200A2880A /* libLiteCoreListener.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libLiteCoreListener.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		27B864631E0DF7E200A2880A /* Listener.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Listener.cc; sourceTree = "<group>"; };
+		27B8646D1E0DFAE400A2880A /* evhtp-config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "evhtp-config.h"; path = "build/evhtp-config.h"; sourceTree = "<group>"; };
+		27B8646E1E0E2A3100A2880A /* libevent_core-2.0.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libevent_core-2.0.5.dylib"; path = "../../../usr/local/Cellar/libevent/2.0.22/lib/libevent_core-2.0.5.dylib"; sourceTree = "<group>"; };
+		27B864701E0E2B1400A2880A /* Listener.hh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Listener.hh; sourceTree = "<group>"; };
+		27B864751E0E2BF000A2880A /* LiteServ */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LiteServ; sourceTree = BUILT_PRODUCTS_DIR; };
+		27B864771E0E2BF000A2880A /* LiteServ.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LiteServ.cpp; sourceTree = "<group>"; };
+		27B8647F1E0EE5EC00A2880A /* Handler.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Handler.cc; sourceTree = "<group>"; };
+		27B864801E0EE5EC00A2880A /* Handler.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Handler.hh; sourceTree = "<group>"; };
+		27B864831E10EA5600A2880A /* Request.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Request.cc; sourceTree = "<group>"; };
+		27B864841E10EA5600A2880A /* Request.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Request.hh; sourceTree = "<group>"; };
+		27B8648D1E15D8DA00A2880A /* EvHtpListener.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EvHtpListener.cc; sourceTree = "<group>"; };
+		27B8648E1E15D8DA00A2880A /* EvHtpListener.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = EvHtpListener.hh; sourceTree = "<group>"; };
 		27BA04BE1DC12DCA000BA8E5 /* LCDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCDocument.h; sourceTree = "<group>"; };
 		27BA04BF1DC12DCA000BA8E5 /* LCDocument.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LCDocument.mm; sourceTree = "<group>"; };
 		27BA04C41DC12E5F000BA8E5 /* LC_Internal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LC_Internal.h; sourceTree = "<group>"; };
@@ -1065,6 +1128,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		27B8645A1E0DF7E200A2880A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				27B8648A1E15A3E500A2880A /* libFleece.a in Frameworks */,
+				27B864691E0DF7FC00A2880A /* libLiteCore.dylib in Frameworks */,
+				27B8646F1E0E2A3100A2880A /* libevent_core-2.0.5.dylib in Frameworks */,
+				27B8646C1E0DF8D800A2880A /* libevhtp.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		27B864721E0E2BF000A2880A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				27B8647E1E0E2C1500A2880A /* libLiteCoreListener.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		27E3DCF01DB0583E00F2872D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -1265,6 +1347,7 @@
 				27E3DCEE1DB057D500F2872D /* Objective-C */,
 				27A6578C1CBC189800A7A1D7 /* Swift */,
 				275072AD18E4A68E00A80C5A /* Objective-C Tests */,
+				27B8645E1E0DF7E200A2880A /* HTTP Listener */,
 				27D74A721D4D3EC000D806E0 /* vendor */,
 				273E9FA41C519A1B003115A6 /* xcconfigs */,
 				27A924951D9B316D00086206 /* LiteCore iOS */,
@@ -1289,6 +1372,8 @@
 				27A924AC1D9B316D00086206 /* LiteCore-iOS Tests.xctest */,
 				27E3DCF41DB0583E00F2872D /* LiteCoreObjC.framework */,
 				27E3DCFC1DB0583E00F2872D /* LiteCoreObjCTests.xctest */,
+				27B8645D1E0DF7E200A2880A /* libLiteCoreListener.dylib */,
+				27B864751E0E2BF000A2880A /* LiteServ */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1296,6 +1381,7 @@
 		2750723D18E3E52800A80C5A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				27B8646E1E0E2A3100A2880A /* libevent_core-2.0.5.dylib */,
 				270515581D907F6200D62D05 /* CoreFoundation.framework */,
 				27E89BAB1D6A611D002C32B3 /* libsqlcipher.0.dylib */,
 				27D74A981D4D404100D806E0 /* libsqlite3.tbd */,
@@ -1537,6 +1623,38 @@
 			path = "LiteCore-iOS Tests";
 			sourceTree = SOURCE_ROOT;
 		};
+		27B8644E1E0DF69600A2880A /* libevhtp */ = {
+			isa = PBXGroup;
+			children = (
+				27B864511E0DF70500A2880A /* evhtp_heap.h */,
+				27B8646D1E0DFAE400A2880A /* evhtp-config.h */,
+				27B864521E0DF70500A2880A /* evhtp_json.h */,
+				27B864531E0DF70500A2880A /* evhtp_numtoa.h */,
+				27B864541E0DF70500A2880A /* evhtp.h */,
+				27B864551E0DF70500A2880A /* evthr.h */,
+				27B864561E0DF70500A2880A /* htparse.h */,
+				27B864571E0DF72600A2880A /* libevhtp.a */,
+			);
+			path = libevhtp;
+			sourceTree = "<group>";
+		};
+		27B8645E1E0DF7E200A2880A /* HTTP Listener */ = {
+			isa = PBXGroup;
+			children = (
+				27B864631E0DF7E200A2880A /* Listener.cc */,
+				27B864701E0E2B1400A2880A /* Listener.hh */,
+				27B8647F1E0EE5EC00A2880A /* Handler.cc */,
+				27B864801E0EE5EC00A2880A /* Handler.hh */,
+				27B864831E10EA5600A2880A /* Request.cc */,
+				27B864841E10EA5600A2880A /* Request.hh */,
+				27B8648D1E15D8DA00A2880A /* EvHtpListener.cc */,
+				27B8648E1E15D8DA00A2880A /* EvHtpListener.hh */,
+				27B864771E0E2BF000A2880A /* LiteServ.cpp */,
+			);
+			name = "HTTP Listener";
+			path = ../Listener;
+			sourceTree = "<group>";
+		};
 		27D74A5F1D4C063A00D806E0 /* Storage */ = {
 			isa = PBXGroup;
 			children = (
@@ -1565,6 +1683,7 @@
 		27D74A721D4D3EC000D806E0 /* vendor */ = {
 			isa = PBXGroup;
 			children = (
+				27B8644E1E0DF69600A2880A /* libevhtp */,
 				277CB6251D0DED5E00702E56 /* Fleece.xcodeproj */,
 				273AD3D018F5E8B0007D8C23 /* snappy */,
 				27EF7FFA1914296D00A327B9 /* sqlite3-unicodesn */,
@@ -1819,6 +1938,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		27B8645B1E0DF7E200A2880A /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				27B864821E0EE5EC00A2880A /* Handler.hh in Headers */,
+				27B864861E10EA5600A2880A /* Request.hh in Headers */,
+				27B864901E15D8DA00A2880A /* EvHtpListener.hh in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		27E3DCF11DB0583E00F2872D /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -2059,6 +2188,43 @@
 			productReference = 27A924AC1D9B316D00086206 /* LiteCore-iOS Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		27B8645C1E0DF7E200A2880A /* LiteCoreListener */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 27B864651E0DF7E200A2880A /* Build configuration list for PBXNativeTarget "LiteCoreListener" */;
+			buildPhases = (
+				27B864591E0DF7E200A2880A /* Sources */,
+				27B8645A1E0DF7E200A2880A /* Frameworks */,
+				27B8645B1E0DF7E200A2880A /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				27B8648C1E15A3EC00A2880A /* PBXTargetDependency */,
+				27B8646B1E0DF80200A2880A /* PBXTargetDependency */,
+			);
+			name = LiteCoreListener;
+			productName = LiteCoreListener;
+			productReference = 27B8645D1E0DF7E200A2880A /* libLiteCoreListener.dylib */;
+			productType = "com.apple.product-type.library.dynamic";
+		};
+		27B864741E0E2BF000A2880A /* LiteServ */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 27B864791E0E2BF000A2880A /* Build configuration list for PBXNativeTarget "LiteServ" */;
+			buildPhases = (
+				27B864711E0E2BF000A2880A /* Sources */,
+				27B864721E0E2BF000A2880A /* Frameworks */,
+				27B864731E0E2BF000A2880A /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				27B8647D1E0E2C0F00A2880A /* PBXTargetDependency */,
+			);
+			name = LiteServ;
+			productName = LiteServ;
+			productReference = 27B864751E0E2BF000A2880A /* LiteServ */;
+			productType = "com.apple.product-type.tool";
+		};
 		27E3DCF31DB0583E00F2872D /* LiteCoreObjC */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 27E3DD051DB0583E00F2872D /* Build configuration list for PBXNativeTarget "LiteCoreObjC" */;
@@ -2191,6 +2357,16 @@
 						ProvisioningStyle = Automatic;
 						TestTargetID = 27A924931D9B316D00086206;
 					};
+					27B8645C1E0DF7E200A2880A = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = N2Q372V7W2;
+						ProvisioningStyle = Automatic;
+					};
+					27B864741E0E2BF000A2880A = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = N2Q372V7W2;
+						ProvisioningStyle = Automatic;
+					};
 					27E3DCF31DB0583E00F2872D = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = N2Q372V7W2;
@@ -2236,6 +2412,8 @@
 				27A924931D9B316D00086206 /* LiteCore-iOS */,
 				27A924AB1D9B316D00086206 /* LiteCore-iOS Tests */,
 				27B7E0F118F8FB4700044EBA /* All */,
+				27B8645C1E0DF7E200A2880A /* LiteCoreListener */,
+				27B864741E0E2BF000A2880A /* LiteServ */,
 			);
 		};
 /* End PBXProject section */
@@ -2468,6 +2646,25 @@
 				27A924C41D9B371700086206 /* c4AllDocsPerformanceTest.cc in Sources */,
 				27A924C61D9B371700086206 /* c4ThreadingTest.cc in Sources */,
 				27A924C91D9B374500086206 /* Catch_Tests.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		27B864591E0DF7E200A2880A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				27B864811E0EE5EC00A2880A /* Handler.cc in Sources */,
+				27B8648F1E15D8DA00A2880A /* EvHtpListener.cc in Sources */,
+				27B864641E0DF7E200A2880A /* Listener.cc in Sources */,
+				27B864851E10EA5600A2880A /* Request.cc in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		27B864711E0E2BF000A2880A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				27B864781E0E2BF000A2880A /* LiteServ.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2744,6 +2941,21 @@
 			isa = PBXTargetDependency;
 			target = 720EA3DB1BA7EAD9002B8416 /* LiteCore dylib */;
 			targetProxy = 27A924CB1D9B391700086206 /* PBXContainerItemProxy */;
+		};
+		27B8646B1E0DF80200A2880A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 720EA3DB1BA7EAD9002B8416 /* LiteCore dylib */;
+			targetProxy = 27B8646A1E0DF80200A2880A /* PBXContainerItemProxy */;
+		};
+		27B8647D1E0E2C0F00A2880A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 27B8645C1E0DF7E200A2880A /* LiteCoreListener */;
+			targetProxy = 27B8647C1E0E2C0F00A2880A /* PBXContainerItemProxy */;
+		};
+		27B8648C1E15A3EC00A2880A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Fleece;
+			targetProxy = 27B8648B1E15A3EC00A2880A /* PBXContainerItemProxy */;
 		};
 		27E3DCFF1DB0583E00F2872D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -3061,6 +3273,220 @@
 			};
 			name = Release;
 		};
+		27B864661E0DF7E200A2880A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = N2Q372V7W2;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				EXECUTABLE_PREFIX = lib;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_CPP_EXCEPTIONS = YES;
+				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					../vendor/libevhtp/,
+					../vendor/libevhtp/oniguruma/,
+					/usr/local/include/,
+					../vendor/fleece/Fleece/,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/Cellar/libevent/2.0.22/lib,
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		27B864671E0DF7E200A2880A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = N2Q372V7W2;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				EXECUTABLE_PREFIX = lib;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_CPP_EXCEPTIONS = YES;
+				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					../vendor/libevhtp/,
+					../vendor/libevhtp/oniguruma/,
+					/usr/local/include/,
+					../vendor/fleece/Fleece/,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/Cellar/libevent/2.0.22/lib,
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		27B8647A1E0E2BF000A2880A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = N2Q372V7W2;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		27B8647B1E0E2BF000A2880A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = N2Q372V7W2;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
 		27E3DD061DB0583E00F2872D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -3346,6 +3772,22 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		27B864651E0DF7E200A2880A /* Build configuration list for PBXNativeTarget "LiteCoreListener" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				27B864661E0DF7E200A2880A /* Debug */,
+				27B864671E0DF7E200A2880A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		27B864791E0E2BF000A2880A /* Build configuration list for PBXNativeTarget "LiteServ" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				27B8647A1E0E2BF000A2880A /* Debug */,
+				27B8647B1E0E2BF000A2880A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 		27E3DD051DB0583E00F2872D /* Build configuration list for PBXNativeTarget "LiteCoreObjC" */ = {
 			isa = XCConfigurationList;

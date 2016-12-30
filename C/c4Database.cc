@@ -120,7 +120,7 @@ bool c4db_compact(C4Database* database, C4Error *outError) noexcept {
 
 
 bool c4db_isCompacting(C4Database *database) noexcept {
-    return database ? database->dataFile()->isCompacting() : DataFile::isAnyCompacting();
+    return database ? database->isCompacting() : DataFile::isAnyCompacting();
 }
 
 

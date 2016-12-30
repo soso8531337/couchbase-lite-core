@@ -21,6 +21,7 @@
 #define WITH_LOCK(db) do { } while (0)  // no-op
 #endif
 
+struct c4View;
 
 namespace fleece {
     class Encoder;
@@ -49,7 +50,6 @@ namespace c4Internal {
         void deleteDatabase();
         static void deleteDatabaseAtPath(const string &dbPath, const C4DatabaseConfig*);
 
-        DataFile* dataFile()                                {return _db.get();}
         FilePath path() const;
         uint64_t countDocuments();
         sequence_t lastSequence()       {WITH_LOCK(this); return defaultKeyStore().lastSequence();}
@@ -59,10 +59,9 @@ namespace c4Internal {
 
         void compact();
         void setOnCompact(DataFile::OnCompactCallback callback) noexcept;
+        bool isCompacting() const noexcept                  {return _db->isCompacting();}
 
         const C4DatabaseConfig config;
-
-        Transaction& transaction() const;
 
         // Transaction methods below acquire _transactionMutex. Do not call them if
         // _mutex is already locked, or deadlock may occur!
@@ -70,6 +69,9 @@ namespace c4Internal {
         void endTransaction(bool commit);
 
         bool inTransaction() noexcept;
+
+        // Throws if not in a transaction
+        Transaction& transaction() const;
 
         KeyStore& defaultKeyStore();
         KeyStore& getKeyStore(const string &name) const;
@@ -109,6 +111,8 @@ namespace c4Internal {
         void mustNotBeInTransaction();
         void externalTransactionCommitted(const SequenceTracker&);
 
+        DataFile* dataFile()                                {return _db.get();}
+
     private:
         Database(const FilePath &path,
                  const C4DatabaseConfig &config);
@@ -125,6 +129,9 @@ namespace c4Internal {
     #endif
         unique_ptr<fleece::Encoder> _encoder;
         unique_ptr<SequenceTracker> _sequenceTracker;       // Doc change tracker/notifier
+
+        friend struct ::c4View;   //TODO: Rewrite c4View to avoid dependency on internal DataFile
+        friend class VectorDocumentFactory;     //TODO: Ditto
     };
 
 
