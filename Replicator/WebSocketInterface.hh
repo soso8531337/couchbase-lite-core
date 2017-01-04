@@ -21,8 +21,8 @@ namespace litecore {
         virtual ~WebSocketProvider() { }
         virtual WebSocketConnection* connect(const std::string &hostname,
                                              uint16_t port,
-                                             WebSocketDelegate*) =0;
-
+                                             WebSocketDelegate&) =0;
+        virtual void addProtocol(const std::string &protocol) =0;
         virtual void close() { }
     };
 
@@ -30,36 +30,57 @@ namespace litecore {
     /** Abstract class representing a WebSocket client connection. */
     class WebSocketConnection {
     public:
-        WebSocketConnection(WebSocketProvider &p)
-        :_provider(p)
-        { }
-
-        virtual ~WebSocketConnection() { }
+        WebSocketConnection(WebSocketProvider&, WebSocketDelegate&);
+        virtual ~WebSocketConnection();
         virtual void send(fleece::slice message, bool binary =true) =0;
         virtual void close() =0;
 
         WebSocketProvider& provider() const  {return _provider;}
+        WebSocketDelegate& delegate() const  {return _delegate;}
 
     private:
         WebSocketProvider &_provider;
+        WebSocketDelegate &_delegate;
     };
 
 
     /** Delegate interface for a WebSocket connection.
-        Receives lifecycle events and incoming WebSocket messages. */
+        Receives lifecycle events and incoming WebSocket messages.
+        These callbacks are made on an undefined thread managed by the WebSocketProvider! */
     class WebSocketDelegate {
     public:
         virtual ~WebSocketDelegate() { }
-        virtual void onStart(WebSocketConnection* connection)       {_connection = connection;}
+
+        WebSocketConnection* connection() const   {return _connection;}
+
+        virtual void onStart()       { }
         virtual void onConnect() =0;
         virtual void onError(int errcode, const char *reason) =0;
         virtual void onClose(int status, fleece::slice reason) =0;
+
+        /** A message has arrived. */
         virtual void onMessage(fleece::slice message, bool binary) =0;
 
-        WebSocketConnection& connection() const   {return *_connection;}
+        /** The socket has room to send more messages. */
+        virtual void onWriteable()       { }
 
     private:
         WebSocketConnection* _connection {nullptr};
+        friend class WebSocketConnection;
     };
+
+
+
+    inline WebSocketConnection::WebSocketConnection(WebSocketProvider &p, WebSocketDelegate &d)
+    :_provider(p)
+    ,_delegate(d)
+    {
+        d._connection = this;
+    }
+
+    inline WebSocketConnection::~WebSocketConnection() {
+        _delegate._connection = nullptr;
+    }
+
 
 }

@@ -8,9 +8,12 @@
 
 #pragma once
 #include "WebSocketInterface.hh"
+#include "slice.hh"
+#include <memory>
 #include <string>
 #include <stdint.h>
-#include "slice.hh"
+#include <thread>
+#include <vector>
 
 struct ws_base_s;
 
@@ -21,21 +24,33 @@ namespace litecore {
     public:
         LibWSProvider();
         virtual ~LibWSProvider();
+
+        virtual void addProtocol(const std::string &protocol) override;
+
         virtual WebSocketConnection* connect(const std::string &hostname, uint16_t port,
-                                             WebSocketDelegate*) override;
+                                             WebSocketDelegate&) override;
 
-        /** Must be called (on a dedicated thread) to start the libevent event loop.
-            This function will not return until close() is called. */
-        void runEventLoop();
+        /** Asynchronously starts the event loop on a new background thread. */
+        void startEventLoop();
 
+        /** Asynchronously stops the event loop, without waiting for it to complete. */
+        void stopEventLoop();
+
+        /** Synchronously stops the event loop and waits for it to complete. */
         virtual void close() override;
 
-    private:
+        /** Runs the event loop in the current thread. Does not return till the provider is closed. */
+        void runEventLoop();
+
+    protected:
+        friend class LibWSConnection;
+
         struct ::ws_base_s* base() {return _base;}
 
+    private:
         struct ::ws_base_s *_base {nullptr};
-
-        friend class LibWSConnection;
+        std::vector<std::string> _protocols;
+        std::unique_ptr<std::thread> _eventLoopThread;
     };
 
 }

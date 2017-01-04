@@ -199,8 +199,8 @@
 		27B8648A1E15A3E500A2880A /* libFleece.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 27FA09BC1D70ADE8005888AA /* libFleece.a */; };
 		27B8648F1E15D8DA00A2880A /* EvHtpListener.cc in Sources */ = {isa = PBXBuildFile; fileRef = 27B8648D1E15D8DA00A2880A /* EvHtpListener.cc */; };
 		27B864901E15D8DA00A2880A /* EvHtpListener.hh in Headers */ = {isa = PBXBuildFile; fileRef = 27B8648E1E15D8DA00A2880A /* EvHtpListener.hh */; };
-		27B864A51E16CE8000A2880A /* Replicator.cc in Sources */ = {isa = PBXBuildFile; fileRef = 27B864A31E16CE8000A2880A /* Replicator.cc */; };
-		27B864A61E16CE8000A2880A /* Replicator.hh in Headers */ = {isa = PBXBuildFile; fileRef = 27B864A41E16CE8000A2880A /* Replicator.hh */; };
+		27B864A51E16CE8000A2880A /* WebSocketEcho.cc in Sources */ = {isa = PBXBuildFile; fileRef = 27B864A31E16CE8000A2880A /* WebSocketEcho.cc */; };
+		27B864A61E16CE8000A2880A /* WebSocketEcho.hh in Headers */ = {isa = PBXBuildFile; fileRef = 27B864A41E16CE8000A2880A /* WebSocketEcho.hh */; };
 		27B864C51E16DFC600A2880A /* libws.h in Headers */ = {isa = PBXBuildFile; fileRef = 27B864C41E16DFC600A2880A /* libws.h */; };
 		27B864CB1E16E32400A2880A /* libevent-2.0.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 27B864CA1E16E32400A2880A /* libevent-2.0.5.dylib */; };
 		27B864CD1E16E35D00A2880A /* libevent_openssl-2.0.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 27B864CC1E16E35D00A2880A /* libevent_openssl-2.0.5.dylib */; };
@@ -226,9 +226,15 @@
 		27B864FA1E17089A00A2880A /* libFleece.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 27FA09BC1D70ADE8005888AA /* libFleece.a */; };
 		27B865081E171EA300A2880A /* libReplicator.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 27B864981E16CDAF00A2880A /* libReplicator.dylib */; };
 		27B8650E1E1724DF00A2880A /* WebSocketInterface.hh in Headers */ = {isa = PBXBuildFile; fileRef = 27B8650C1E1724DF00A2880A /* WebSocketInterface.hh */; };
-		27B865141E172DA300A2880A /* ReplicatorTest.cc in Sources */ = {isa = PBXBuildFile; fileRef = 27B865121E172D7800A2880A /* ReplicatorTest.cc */; };
+		27B865141E172DA300A2880A /* BLIPTest.cc in Sources */ = {isa = PBXBuildFile; fileRef = 27B865121E172D7800A2880A /* BLIPTest.cc */; };
 		27B865171E17391F00A2880A /* LibWSProvider.cc in Sources */ = {isa = PBXBuildFile; fileRef = 27B865151E17391F00A2880A /* LibWSProvider.cc */; };
 		27B865181E17391F00A2880A /* LibWSProvider.hh in Headers */ = {isa = PBXBuildFile; fileRef = 27B865161E17391F00A2880A /* LibWSProvider.hh */; };
+		27B8651B1E187A2B00A2880A /* BLIP.cc in Sources */ = {isa = PBXBuildFile; fileRef = 27B865191E187A2B00A2880A /* BLIP.cc */; };
+		27B8651C1E187A2B00A2880A /* BLIP.hh in Headers */ = {isa = PBXBuildFile; fileRef = 27B8651A1E187A2B00A2880A /* BLIP.hh */; };
+		27B8651D1E18913E00A2880A /* RefCounted.cc in Sources */ = {isa = PBXBuildFile; fileRef = 27F7A0C31D5E657C00447BC6 /* RefCounted.cc */; };
+		27B8651E1E1891B500A2880A /* Logging.cc in Sources */ = {isa = PBXBuildFile; fileRef = 27E3DD351DB450B300F2872D /* Logging.cc */; };
+		27B865211E1B31EC00A2880A /* Message.cc in Sources */ = {isa = PBXBuildFile; fileRef = 27B8651F1E1B31EC00A2880A /* Message.cc */; };
+		27B865221E1B31EC00A2880A /* Message.hh in Headers */ = {isa = PBXBuildFile; fileRef = 27B865201E1B31EC00A2880A /* Message.hh */; };
 		27BA04C01DC12DCA000BA8E5 /* LCDocument.h in Headers */ = {isa = PBXBuildFile; fileRef = 27BA04BE1DC12DCA000BA8E5 /* LCDocument.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		27BA04C11DC12DCA000BA8E5 /* LCDocument.mm in Sources */ = {isa = PBXBuildFile; fileRef = 27BA04BF1DC12DCA000BA8E5 /* LCDocument.mm */; };
 		27BA04CD1DC26FB9000BA8E5 /* LC_Internal.mm in Sources */ = {isa = PBXBuildFile; fileRef = 27BA04CC1DC26FB9000BA8E5 /* LC_Internal.mm */; };
@@ -929,8 +935,8 @@
 		27B8648D1E15D8DA00A2880A /* EvHtpListener.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EvHtpListener.cc; sourceTree = "<group>"; };
 		27B8648E1E15D8DA00A2880A /* EvHtpListener.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = EvHtpListener.hh; sourceTree = "<group>"; };
 		27B864981E16CDAF00A2880A /* libReplicator.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libReplicator.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
-		27B864A31E16CE8000A2880A /* Replicator.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Replicator.cc; sourceTree = "<group>"; };
-		27B864A41E16CE8000A2880A /* Replicator.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Replicator.hh; sourceTree = "<group>"; };
+		27B864A31E16CE8000A2880A /* WebSocketEcho.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WebSocketEcho.cc; sourceTree = "<group>"; };
+		27B864A41E16CE8000A2880A /* WebSocketEcho.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = WebSocketEcho.hh; sourceTree = "<group>"; };
 		27B864C41E16DFC600A2880A /* libws.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = libws.h; path = src/libws.h; sourceTree = "<group>"; };
 		27B864CA1E16E32400A2880A /* libevent-2.0.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libevent-2.0.5.dylib"; path = "../../../usr/local/Cellar/libevent/2.0.22/lib/libevent-2.0.5.dylib"; sourceTree = "<group>"; };
 		27B864CC1E16E35D00A2880A /* libevent_openssl-2.0.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libevent_openssl-2.0.5.dylib"; path = "../../../usr/local/Cellar/libevent/2.0.22/lib/libevent_openssl-2.0.5.dylib"; sourceTree = "<group>"; };
@@ -956,9 +962,13 @@
 		27B864F81E16EC9300A2880A /* libws_base64.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = libws_base64.h; path = src/libws_base64.h; sourceTree = "<group>"; };
 		27B865011E171DA300A2880A /* ReplicatorTest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ReplicatorTest; sourceTree = BUILT_PRODUCTS_DIR; };
 		27B8650C1E1724DF00A2880A /* WebSocketInterface.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = WebSocketInterface.hh; sourceTree = "<group>"; };
-		27B865121E172D7800A2880A /* ReplicatorTest.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ReplicatorTest.cc; sourceTree = "<group>"; };
+		27B865121E172D7800A2880A /* BLIPTest.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BLIPTest.cc; sourceTree = "<group>"; };
 		27B865151E17391F00A2880A /* LibWSProvider.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LibWSProvider.cc; sourceTree = "<group>"; };
 		27B865161E17391F00A2880A /* LibWSProvider.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = LibWSProvider.hh; sourceTree = "<group>"; };
+		27B865191E187A2B00A2880A /* BLIP.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BLIP.cc; sourceTree = "<group>"; };
+		27B8651A1E187A2B00A2880A /* BLIP.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BLIP.hh; sourceTree = "<group>"; };
+		27B8651F1E1B31EC00A2880A /* Message.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Message.cc; sourceTree = "<group>"; };
+		27B865201E1B31EC00A2880A /* Message.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Message.hh; sourceTree = "<group>"; };
 		27BA04BE1DC12DCA000BA8E5 /* LCDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCDocument.h; sourceTree = "<group>"; };
 		27BA04BF1DC12DCA000BA8E5 /* LCDocument.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LCDocument.mm; sourceTree = "<group>"; };
 		27BA04C41DC12E5F000BA8E5 /* LC_Internal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LC_Internal.h; sourceTree = "<group>"; };
@@ -1768,9 +1778,13 @@
 				27B8650C1E1724DF00A2880A /* WebSocketInterface.hh */,
 				27B865151E17391F00A2880A /* LibWSProvider.cc */,
 				27B865161E17391F00A2880A /* LibWSProvider.hh */,
-				27B864A31E16CE8000A2880A /* Replicator.cc */,
-				27B864A41E16CE8000A2880A /* Replicator.hh */,
-				27B865121E172D7800A2880A /* ReplicatorTest.cc */,
+				27B864A31E16CE8000A2880A /* WebSocketEcho.cc */,
+				27B864A41E16CE8000A2880A /* WebSocketEcho.hh */,
+				27B8651F1E1B31EC00A2880A /* Message.cc */,
+				27B865201E1B31EC00A2880A /* Message.hh */,
+				27B865191E187A2B00A2880A /* BLIP.cc */,
+				27B8651A1E187A2B00A2880A /* BLIP.hh */,
+				27B865121E172D7800A2880A /* BLIPTest.cc */,
 			);
 			name = Replicator;
 			path = ../Replicator;
@@ -2102,6 +2116,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27B8651C1E187A2B00A2880A /* BLIP.hh in Headers */,
 				27B864E31E16E3E300A2880A /* libws_compat.h in Headers */,
 				27B864E71E16E3E300A2880A /* libws_header.h in Headers */,
 				27B864F71E16EB1E00A2880A /* libws_private_config.h in Headers */,
@@ -2112,8 +2127,9 @@
 				27B864EF1E16E3E300A2880A /* libws_sha1.h in Headers */,
 				27B865181E17391F00A2880A /* LibWSProvider.hh in Headers */,
 				27B864C51E16DFC600A2880A /* libws.h in Headers */,
-				27B864A61E16CE8000A2880A /* Replicator.hh in Headers */,
+				27B864A61E16CE8000A2880A /* WebSocketEcho.hh in Headers */,
 				27B864F01E16E3E300A2880A /* libws_types.h in Headers */,
+				27B865221E1B31EC00A2880A /* Message.hh in Headers */,
 				27B864E91E16E3E300A2880A /* libws_log.h in Headers */,
 				27B8650E1E1724DF00A2880A /* WebSocketInterface.hh in Headers */,
 			);
@@ -2892,13 +2908,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				27B864F91E16ED4F00A2880A /* libws_base64.c in Sources */,
+				27B8651E1E1891B500A2880A /* Logging.cc in Sources */,
 				27B864E61E16E3E300A2880A /* libws_header.c in Sources */,
 				27B865171E17391F00A2880A /* LibWSProvider.cc in Sources */,
+				27B865211E1B31EC00A2880A /* Message.cc in Sources */,
 				27B864F11E16E3E300A2880A /* libws_utf8.c in Sources */,
 				27B864E81E16E3E300A2880A /* libws_log.c in Sources */,
 				27B864EE1E16E3E300A2880A /* libws_sha1.c in Sources */,
+				27B8651B1E187A2B00A2880A /* BLIP.cc in Sources */,
 				27B864EC1E16E3E300A2880A /* libws_private.c in Sources */,
-				27B864A51E16CE8000A2880A /* Replicator.cc in Sources */,
+				27B8651D1E18913E00A2880A /* RefCounted.cc in Sources */,
+				27B864A51E16CE8000A2880A /* WebSocketEcho.cc in Sources */,
 				27B864F31E16E3E300A2880A /* libws.c in Sources */,
 				27B864E21E16E3E300A2880A /* libws_compat.c in Sources */,
 				27B864E41E16E3E300A2880A /* libws_handshake.c in Sources */,
@@ -2909,7 +2929,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				27B865141E172DA300A2880A /* ReplicatorTest.cc in Sources */,
+				27B865141E172DA300A2880A /* BLIPTest.cc in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

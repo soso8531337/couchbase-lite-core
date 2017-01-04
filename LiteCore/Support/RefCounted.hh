@@ -71,15 +71,30 @@ namespace litecore {
     template <typename T>
     class Retained {
     public:
-        Retained(T *t)          :_ref(t->retain()) { }
-        ~Retained()             {_ref->release();}
+        Retained()                      :_ref(nullptr) { }
+        Retained(T *t)                  :_ref(t ? (T*)t->retain() : nullptr) { }
+        Retained(const Retained &r)     :_ref((T*)r._ref->retain()) { }
+        Retained(Retained &&r)          :_ref(r._ref) {r._ref = nullptr;}
+        ~Retained()             {if (_ref) _ref->release();}
         operator T* () const    {return _ref;}
         T* operator-> () const  {return _ref;}
-    private:
-        T *_ref;
 
-        Retained(const Retained&) =delete;
-        Retained& operator=(const Retained&) =delete;
+        Retained& operator=(const Retained &r) {
+            if (_ref) _ref->release();
+            _ref = r._ref;
+            if (_ref) _ref->retain();
+            return *this;
+        }
+
+        Retained& operator= (Retained &&r) {
+            if (_ref) _ref->release();
+            _ref = r._ref;
+            r._ref = nullptr;
+            return *this;
+        }
+
+private:
+        T *_ref;
     };
 
 }
