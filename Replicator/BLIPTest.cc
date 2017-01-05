@@ -7,7 +7,7 @@
 //
 
 #include "LibWSProvider.hh"
-#include "BLIP.hh"
+#include "BLIPConnection.hh"
 #include <iostream>
 
 using namespace litecore;

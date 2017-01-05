@@ -1,5 +1,5 @@
 //
-//  BLIP.hh
+//  BLIPConnection.hh
 //  LiteCore
 //
 //  Created by Jens Alfke on 12/31/16.
@@ -14,6 +14,7 @@
 namespace litecore { namespace blip {
     class BLIPIO;
     class ConnectionDelegate;
+    class MessageOut;
 
 
     class Connection : public RefCounted<Connection> {

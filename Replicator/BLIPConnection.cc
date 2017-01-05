@@ -6,8 +6,9 @@
 //  Copyright © 2016 Couchbase. All rights reserved.
 //
 
-#include "BLIP.hh"
+#include "BLIPConnection.hh"
 #include "Message.hh"
+#include "BLIPInternal.hh"
 #include "WebSocketInterface.hh"
 #include "varint.hh"
 #include <algorithm>
@@ -29,6 +30,7 @@ namespace litecore { namespace blip {
 #pragma mark - BLIP I/O:
 
 
+    /** The guts of a Connection. */
     class BLIPIO : public WebSocketDelegate {
     public:
         BLIPIO(Connection*);
@@ -102,16 +104,15 @@ namespace litecore { namespace blip {
             do {
                 --i;
                 if ((*i)->urgent()) {
-                    ++i;
-                    if (i != _queue.end())
+                    if ((i+1) != _queue.end())
                         ++i;
                     break;
                 } else if (msg->_bytesSent == 0 && (*i)->_bytesSent == 0) {
                     // But make sure to keep the 1st frames of messages in chronological order:
-                    ++i;
                     break;
                 }
             } while (i != _queue.begin());
+            ++i;
         }
         _queue.emplace(i, msg);  // inserts _at_ position i
     }
@@ -279,8 +280,8 @@ namespace litecore { namespace blip {
 
     /** Public API to send a new request. */
     MessageIn* Connection::sendRequest(MessageBuilder &mb) {
-        assert(mb.type == kRequestType);
         Retained<MessageOut> message = new MessageOut(this, mb);
+        assert(message->type() == kRequestType);
         send(message);
         return message->pendingResponse();
     }

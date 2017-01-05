@@ -7,7 +7,8 @@
 //
 
 #include "Message.hh"
-#include "BLIP.hh"
+#include "BLIPConnection.hh"
+#include "BLIPInternal.hh"
 #include "varint.hh"
 #include <algorithm>
 #include <assert.h>
@@ -22,7 +23,7 @@ namespace litecore { namespace blip {
 
 
     // Property names/values that are encoded as single bytes (first is Ctrl-A, etc.)
-    // CHANGING THIS ARRAY WILL BREAK PROTOCOL COMPATIBILITY!!
+    // Protocol v2.0. CHANGING THIS ARRAY WILL BREAK BLIP PROTOCOL COMPATIBILITY!!
     static slice kSpecialProperties[] = {
         "Profile"_sl,
         "Error-Code"_sl,
@@ -76,9 +77,9 @@ namespace litecore { namespace blip {
 
 
     void MessageBuilder::makeError(slice domain, int code, slice message) {
+        assert(domain);
         type = kErrorType;
-        if (domain)
-            addProperty("Error-Domain"_sl, domain);
+        addProperty("Error-Domain"_sl, domain);
         addProperty("Error-Code"_sl, code);
         if (message)
             addProperty("Error-Message"_sl, message);
@@ -86,7 +87,7 @@ namespace litecore { namespace blip {
 
 
     FrameFlags MessageBuilder::flags() const {
-        int flags = type;
+        int flags = type & kTypeMask;
         if (urgent)     flags |= kUrgent;
         if (compressed) flags |= kCompressed;
         if (noreply)    flags |= kNoReply;
@@ -94,6 +95,7 @@ namespace litecore { namespace blip {
     }
 
 
+    // Abbreviates certain special strings as a single byte
     static slice tokenize(slice str, uint8_t &tokenBuf) {
         for (slice *special = &kSpecialProperties[0]; *special; ++special) {
             if (str == *special) {
@@ -128,9 +130,18 @@ namespace litecore { namespace blip {
     void MessageBuilder::finishProperties() {
         if (_propertiesSizePos) {
             size_t propertiesSize = _out.length() - kPropertiesSizeReserved;
-            assert(propertiesSize < 0x80); //TEMP TODO FIX This needs to be a varint
-            uint8_t size = (uint8_t)propertiesSize;
-            _out.rewrite(_propertiesSizePos, {&size, sizeof(size)});
+            char buf[kMaxVarintLen64];
+            slice encodedSize(buf, PutUVarInt(buf, propertiesSize));
+            if (encodedSize.size == 1) {
+                // Overwrite the size placeholder with the real size byte:
+                _out.rewrite(_propertiesSizePos, encodedSize);
+            } else {
+                // Oh crap, the properties size field requires 2+ bytes. Gotta start over:
+                auto copiedProps = _out.extractOutput();
+                _out.reset();
+                _out.write(encodedSize);
+                _out.write(copiedProps);
+            }
             _propertiesSizePos = nullptr;
         }
     }
@@ -182,8 +193,11 @@ namespace litecore { namespace blip {
 
     MessageIn* MessageOut::pendingResponse() {
         if (!_pendingResponse) {
-            if (type() == kRequestType && !hasFlag(kNoReply))
-                _pendingResponse = new MessageIn(_connection, kResponseType, _number);
+            if (type() == kRequestType && !noReply()) {
+                // The flags will be updated when the first frame of the response arrives;
+                // the type might become kErrorType, and kUrgent or kCompressed might be set.
+                _pendingResponse = new MessageIn(_connection, (FrameFlags)kResponseType, _number);
+            }
         }
         return _pendingResponse;
     }
@@ -252,7 +266,7 @@ namespace litecore { namespace blip {
 
 
     void MessageIn::respond(MessageBuilder &mb) {
-        assert(!hasFlag(kNoReply));
+        assert(!noReply());
         if (mb.type == kRequestType)
             mb.type = kResponseType;
         Retained<MessageOut> message = new MessageOut(_connection, mb, _number);
