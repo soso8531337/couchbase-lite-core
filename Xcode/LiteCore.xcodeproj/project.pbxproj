@@ -125,6 +125,13 @@
 		276D15431DFF54BD00543B1B /* SQLiteQuery.cc in Sources */ = {isa = PBXBuildFile; fileRef = 276D15401DFF541000543B1B /* SQLiteQuery.cc */; };
 		277015261D55112E008BADD7 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 27D74A981D4D404100D806E0 /* libsqlite3.tbd */; };
 		27766E161982DA8E00CAA464 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27766E151982DA8E00CAA464 /* Security.framework */; };
+		277D28451E230FBF001CA613 /* Actor.cc in Sources */ = {isa = PBXBuildFile; fileRef = 277D28431E230FBF001CA613 /* Actor.cc */; };
+		277D28461E230FBF001CA613 /* Actor.cc in Sources */ = {isa = PBXBuildFile; fileRef = 277D28431E230FBF001CA613 /* Actor.cc */; };
+		277D28471E230FBF001CA613 /* Actor.hh in Headers */ = {isa = PBXBuildFile; fileRef = 277D28441E230FBF001CA613 /* Actor.hh */; };
+		277D284C1E2311C5001CA613 /* Channel.cc in Sources */ = {isa = PBXBuildFile; fileRef = 277D284A1E2311C5001CA613 /* Channel.cc */; };
+		277D284D1E2311C5001CA613 /* Channel.cc in Sources */ = {isa = PBXBuildFile; fileRef = 277D284A1E2311C5001CA613 /* Channel.cc */; };
+		277D284E1E2311C5001CA613 /* Channel.hh in Headers */ = {isa = PBXBuildFile; fileRef = 277D284B1E2311C5001CA613 /* Channel.hh */; };
+		277D28501E231BDB001CA613 /* ActorTest.cc in Sources */ = {isa = PBXBuildFile; fileRef = 277D284F1E231BDB001CA613 /* ActorTest.cc */; };
 		2783DF991D27436700F84E6E /* c4ThreadingTest.cc in Sources */ = {isa = PBXBuildFile; fileRef = 2783DF981D27436700F84E6E /* c4ThreadingTest.cc */; };
 		278963621D7A376900493096 /* EncryptedStream.cc in Sources */ = {isa = PBXBuildFile; fileRef = 278963601D7A376900493096 /* EncryptedStream.cc */; };
 		278963631D7A376900493096 /* EncryptedStream.cc in Sources */ = {isa = PBXBuildFile; fileRef = 278963601D7A376900493096 /* EncryptedStream.cc */; };
@@ -857,6 +864,11 @@
 		2777146C1C5D6BDB003C0287 /* static_lib.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = static_lib.xcconfig; sourceTree = "<group>"; };
 		277CB6251D0DED5E00702E56 /* Fleece.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Fleece.xcodeproj; path = fleece/Fleece.xcodeproj; sourceTree = "<group>"; };
 		277D19C9194E295B008E91EB /* Error.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Error.hh; sourceTree = "<group>"; };
+		277D28431E230FBF001CA613 /* Actor.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Actor.cc; sourceTree = "<group>"; };
+		277D28441E230FBF001CA613 /* Actor.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Actor.hh; sourceTree = "<group>"; };
+		277D284A1E2311C5001CA613 /* Channel.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Channel.cc; sourceTree = "<group>"; };
+		277D284B1E2311C5001CA613 /* Channel.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Channel.hh; sourceTree = "<group>"; };
+		277D284F1E231BDB001CA613 /* ActorTest.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ActorTest.cc; sourceTree = "<group>"; };
 		2783DF981D27436700F84E6E /* c4ThreadingTest.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = c4ThreadingTest.cc; sourceTree = "<group>"; };
 		278963601D7A376900493096 /* EncryptedStream.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EncryptedStream.cc; path = ../Support/EncryptedStream.cc; sourceTree = "<group>"; };
 		278963611D7A376900493096 /* EncryptedStream.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = EncryptedStream.hh; path = ../Support/EncryptedStream.hh; sourceTree = "<group>"; };
@@ -1312,6 +1324,7 @@
 		271057C21D3997230018247B /* C++ Tests */ = {
 			isa = PBXGroup;
 			children = (
+				277D284F1E231BDB001CA613 /* ActorTest.cc */,
 				277014FF1D516CE2008BADD7 /* CollatableTest.cc */,
 				277015081D523E2E008BADD7 /* DataFileTest.cc */,
 				277015131D5272D1008BADD7 /* IndexTest.cc */,
@@ -1526,6 +1539,10 @@
 		2750724318E3E52800A80C5A /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				277D28431E230FBF001CA613 /* Actor.cc */,
+				277D28441E230FBF001CA613 /* Actor.hh */,
+				277D284A1E2311C5001CA613 /* Channel.cc */,
+				277D284B1E2311C5001CA613 /* Channel.hh */,
 				27E4872D1924178B007D8940 /* Collatable.cc */,
 				27E4872E1924178B007D8940 /* Collatable.hh */,
 				277D19C9194E295B008E91EB /* Error.hh */,
@@ -2211,6 +2228,7 @@
 				278963641D7A376900493096 /* EncryptedStream.hh in Headers */,
 				27E89BA81D679542002C32B3 /* FilePath.hh in Headers */,
 				2708FE601CF6197D0022F721 /* RawRevTree.hh in Headers */,
+				277D284E1E2311C5001CA613 /* Channel.hh in Headers */,
 				274D5BAC1DF9CCDE00BDAF9D /* DocumentMeta.hh in Headers */,
 				27D74A951D4D3F3400D806E0 /* Statement.h in Headers */,
 				276CD42A1D77E92E001346A3 /* BlobStore.hh in Headers */,
@@ -2224,6 +2242,7 @@
 				274A69941BED3E0500D16D37 /* c4Key.h in Headers */,
 				279794B01D3405CD001D0F3A /* CASRevisionStore.hh in Headers */,
 				273E9ED91C506DB4003115A6 /* SecureRandomize.hh in Headers */,
+				277D28471E230FBF001CA613 /* Actor.hh in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2753,6 +2772,7 @@
 				27FA09A71D6FAE4F005888AA /* VersionedDocumentTests.cc in Sources */,
 				27FDF1431DAC22230087B4E6 /* SQLiteFunctionsTest.cc in Sources */,
 				27FA09A21D6FACC2005888AA /* IndexTest.cc in Sources */,
+				277D28501E231BDB001CA613 /* ActorTest.cc in Sources */,
 				27FA09A51D6FADAE005888AA /* MapReduceTest.cc in Sources */,
 				27FA09AF1D6FB616005888AA /* VersionVectorTest.cc in Sources */,
 				27FA09B11D6FB7AE005888AA /* RevisionTest.cc in Sources */,
@@ -3012,6 +3032,7 @@
 				2769438C1DCD502A00DB2555 /* c4Observer.cc in Sources */,
 				2705154D1D8CBE6C00D62D05 /* c4ViewQuery.cc in Sources */,
 				27C319EE1A143F5D00A89EDC /* KeyStore.cc in Sources */,
+				277D284C1E2311C5001CA613 /* Channel.cc in Sources */,
 				2722504E1D7892610006D5A5 /* c4BlobStore.cc in Sources */,
 				27D74A6F1D4D3DF500D806E0 /* SQLiteDataFile.cc in Sources */,
 				27D74A841D4D3F2300D806E0 /* Transaction.cpp in Sources */,
@@ -3020,6 +3041,7 @@
 				27F7A0C41D5E657C00447BC6 /* RefCounted.cc in Sources */,
 				273407231DEE116600EA5532 /* PlatformIO.cc in Sources */,
 				27B341271D9C7A90009FFA0B /* SQLiteFleeceFunctions.cc in Sources */,
+				277D28451E230FBF001CA613 /* Actor.cc in Sources */,
 				276D15411DFF541000543B1B /* SQLiteQuery.cc in Sources */,
 				27DF46C41A12CF46007BB4A4 /* Record.cc in Sources */,
 				27E4872B1923F24D007D8940 /* VersionedDocument.cc in Sources */,
@@ -3073,6 +3095,7 @@
 				278963681D7B7E7D00493096 /* Stream.cc in Sources */,
 				27D74A701D4D3DF500D806E0 /* SQLiteDataFile.cc in Sources */,
 				720EA40E1BA8D834002B8416 /* KeyStore.cc in Sources */,
+				277D284D1E2311C5001CA613 /* Channel.cc in Sources */,
 				720EA4131BA8D834002B8416 /* RevID.cc in Sources */,
 				279794A01D305EC2001D0F3A /* Revision.cc in Sources */,
 				274EDDED1DA2F488003AD158 /* SQLiteKeyStore.cc in Sources */,
@@ -3081,6 +3104,7 @@
 				720EA40F1BA8D834002B8416 /* DataFile.cc in Sources */,
 				279794AF1D3405CD001D0F3A /* CASRevisionStore.cc in Sources */,
 				275CED461D3ECE9B001DE46C /* TreeDocument.cc in Sources */,
+				277D28461E230FBF001CA613 /* Actor.cc in Sources */,
 				720EA4111BA8D834002B8416 /* RecordEnumerator.cc in Sources */,
 				72C086961CBDFD6600808CE7 /* c4DocExpiration.cc in Sources */,
 				27D74A831D4D3F2300D806E0 /* Statement.cpp in Sources */,

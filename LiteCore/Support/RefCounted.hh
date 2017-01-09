@@ -79,6 +79,8 @@ namespace litecore {
         operator T* () const    {return _ref;}
         T* operator-> () const  {return _ref;}
 
+        T* get() const          {return _ref;}
+
         Retained& operator=(const Retained &r) {
             if (_ref) _ref->release();
             _ref = r._ref;
